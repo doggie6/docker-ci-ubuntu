@@ -6,10 +6,15 @@ GRADLE_PACKAGE="gradle-3.3"
 MAVEN_BALL="${MAVEN_PACKAGE}-bin.tar.gz"
 GRADLE_BALL="${GRADLE_PACKAGE}-bin.zip"
 
-if [ -z "${build_fileserver}" ]; then build_fileserver="http://mirrors.tuna.tsinghua.edu.cn"; fi
-wget -q -O ${MAVEN_BALL} ${build_fileserver}/apache/maven/maven-3/3.3.9/binaries/${MAVEN_BALL}
-if [ -z "${build_fileserver}" ]; then build_fileserver="https://downloads.gradle.org"; fi
-wget -q -O ${GRADLE_BALL} ${build_fileserver}/distributions/${GRADLE_BALL}
+if [ -z "${build_fileserver}" ]; then
+    build_fileserver="http://mirrors.tuna.tsinghua.edu.cn";
+    wget -q -O ${MAVEN_BALL} ${build_fileserver}/apache/maven/maven-3/3.3.9/binaries/${MAVEN_BALL}
+    build_fileserver="https://downloads.gradle.org";
+    wget -q -O ${GRADLE_BALL} ${build_fileserver}/distributions/${GRADLE_BALL}
+else
+    wget -q -O ${MAVEN_BALL} ${build_fileserver}/apache/maven/maven-3/3.3.9/binaries/${MAVEN_BALL}
+    wget -q -O ${GRADLE_BALL} ${build_fileserver}/distributions/${GRADLE_BALL}
+fi
 
 mkdir -p /opt
 tar xf ${MAVEN_BALL} -C /opt && ln -sf /opt/${MAVEN_PACKAGE} /opt/maven && rm ${MAVEN_BALL}
