@@ -1,5 +1,5 @@
 # docker-compose build
-# export: docker save registry.docker.local/yrd-ubuntu:16.04 > ${HOME}/Desktop/yrd-ubuntu.tar
+# export: docker save registry.docker.local/ci-ubuntu:16.04 > ${HOME}/Desktop/ci-ubuntu.tar
 version: '2.1'
 services:
   ubuntu-scm:
