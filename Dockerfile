@@ -13,7 +13,8 @@ RUN sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//http:\/\/mirrors.163.com\/ub
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     dpkg-reconfigure -f noninteractive locales && \
     apt-get upgrade -y && \
-    apt-get install -y ca-certificates apt-transport-https vim curl nano wget build-essential python python-pip unzip && \
+    apt-get install -y apt-transport-https apt-utils ca-certificates curl lsb-release nano software-properties-common unzip vim wget && \
+    apt-get install -y build-essential python python-pip && \
     apt-get -q autoremove && \
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
