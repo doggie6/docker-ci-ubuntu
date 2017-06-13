@@ -28,7 +28,7 @@ RUN apt-get update -y && \
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 ## install docker && docker-compose
-ADD docker/install_docker.sh /root
+ADD docker/install_docker.sh /root/
 RUN /root/install_docker.sh
 
 ## install jdk
@@ -39,7 +39,7 @@ ENV JAVA_HOME /opt/jdk
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
 ## install node
-ADD docker/install_nodejs.sh /root
+ADD docker/install_nodejs.sh /root/
 RUN /root/install_nodejs.sh
 
 ENV NODE_HOME /opt/node

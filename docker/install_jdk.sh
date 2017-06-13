@@ -2,14 +2,18 @@
 
 # Java Version
 JAVA_VERSION_MAJOR=8
-JAVA_VERSION_MINOR=101
-JAVA_VERSION_BUILD=13
+JAVA_VERSION_MINOR=131
+JAVA_VERSION_BUILD=11
 JAVA_PACKAGE=jdk
+JAVA_PACKAGE_DIGEST=d54c1d3a095b4ff2b6607d096fa80163
 
 # Download and unarchive Java
 if [ -z "${build_fileserver}" ]; then build_fileserver="http://download.oracle.com"; fi
-mkdir -p /opt && curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" \
-  ${build_fileserver}/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz \
+http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+mkdir -p /opt && \
+    curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" \
+    ${build_fileserver}/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/${JAVA_PACKAGE_DIGEST}/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz \
     | tar -xzf - -C /opt &&\
     ln -s /opt/jdk1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} /opt/jdk &&\
     rm -rf /opt/jdk/*src.zip \

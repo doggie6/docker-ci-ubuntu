@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 NODE_PACKAGE="node"
-NODE_VERSION="v6.9.2"
+NODE_VERSION="v6.11.0"
 
 PACKAGE_NAME="${NODE_PACKAGE}-${NODE_VERSION}-linux-x64"
 PACKAGE_TAR="${PACKAGE_NAME}.tar.xz"
