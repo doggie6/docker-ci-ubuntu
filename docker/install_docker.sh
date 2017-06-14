@@ -15,7 +15,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
     apt-get update && \
     apt-cache madison docker-ce && \
-    apt-get -yq install docker-ce=17.03.1~ce-0~ubuntu-xenial && \
+    apt-get -yq --allow-unauthenticated install docker-ce=17.03.1~ce-0~ubuntu-xenial && \
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin && \
     wget -q -O /usr/local/bin/docker-machine ${build_fileserver}/docker/machine/releases/download/v0.12.0/docker-machine-Linux-x86_64 && \
     chmod +x /usr/local/bin/docker-machine && \
