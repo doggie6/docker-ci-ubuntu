@@ -27,6 +27,10 @@ RUN apt-get update -y && \
     apt-get install -y graphviz && \
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
+## install ruby
+ADD docker/install_ruby.sh /root/
+RUN /root/install_ruby.sh
+
 ## install docker && docker-compose
 ADD docker/install_docker.sh /root/
 RUN /root/install_docker.sh
