@@ -36,8 +36,8 @@ ADD docker/install_docker.sh /root/
 RUN /root/install_docker.sh
 
 ## install jdk
-ADD docker/install_jdk.sh /root/
-RUN /root/install_jdk.sh
+ADD docker/install_oracle_jdk.sh /root/
+RUN /root/install_oracle_jdk.sh
 
 ENV JAVA_HOME /opt/jdk
 ENV PATH ${PATH}:${JAVA_HOME}/bin
